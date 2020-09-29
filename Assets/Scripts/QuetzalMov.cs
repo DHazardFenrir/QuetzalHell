@@ -7,7 +7,10 @@ public class QuetzalMov : MonoBehaviour
     private Transform playerQuetzal;
     private Rigidbody m_Rb;
     private Vector3 moveInput;
-    private Vector3 moveVelocity;
+    Quaternion rotation;
+
+
+    [SerializeField]bool isBarrelRoll;
    
     [SerializeField] float speed = 0;
     // Start is called before the first frame update
@@ -15,6 +18,8 @@ public class QuetzalMov : MonoBehaviour
     {
         m_Rb = GetComponent<Rigidbody>();
         playerQuetzal = this.transform;
+        rotation = transform.localRotation;
+        rotation.y = 1f;
     }
 
     // Update is called once per frame
@@ -30,34 +35,63 @@ public class QuetzalMov : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            int dir = Input.GetKeyDown(KeyCode.Space) ? -1 : 1;
-            QuickSpin(dir);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                //int dir = Input.GetKeyDown(KeyCode.Space) ? -1 : 1;
+                //QuickSpin(dir);
+
+                // HAK: Use the Horizontal axis to get the proper direction
+                QuickSpin(h > 0 ? 1 : -1);
+            }
+           
+
+
+
         }
-      
+        StopCoroutine(BarrelRoll());
+
         HorizontalLean(playerQuetzal, v, 5, 1f);
-        VerticalLean(playerQuetzal, h, 20, 1f);
+
+
+        // HAK: Avoid the gimbal lock
+        if (v >= 0)
+        {
+            VerticalLean(playerQuetzal, h, 20, 1f);
+        }
     }
 
    
 
     void QuickSpin(int dir)
     {
-        playerQuetzal.DOLocalRotate(new Vector3(playerQuetzal.localEulerAngles.x, playerQuetzal.localEulerAngles.y, 360 * -dir), .4f, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
-
+        if (isBarrelRoll)
+            return;
+        isBarrelRoll = true;
+       
+        playerQuetzal.DOLocalRotate(new Vector3(playerQuetzal.localEulerAngles.x, playerQuetzal.rotation.y, 359* -dir), .4f, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
+        StartCoroutine(BarrelRoll());
     }
 
     void HorizontalLean(Transform target, float axis, float leanLimit, float lerpTime )
     {
         Vector3 targetEulerAngles = target.localEulerAngles;
-        target.localEulerAngles = new Vector3(targetEulerAngles.x, targetEulerAngles.y, Mathf.LerpAngle(targetEulerAngles.z, -axis * leanLimit, lerpTime)); //Learps Horizontally creating the effect of semi-rotation when you move, like a bird.
+        target.localEulerAngles = new Vector3(targetEulerAngles.x, targetEulerAngles.y, Mathf.LerpAngle(targetEulerAngles.z, axis * leanLimit, lerpTime)); //Learps Horizontally creating the effect of semi-rotation when you move, like a bird.
 
     }
 
     void VerticalLean(Transform target, float axis, float leanLimit, float lerpTime)
     {
         Vector3 targetEulerAngles = target.localEulerAngles;
-        target.localEulerAngles = new Vector3(targetEulerAngles.z, targetEulerAngles.y, Mathf.LerpAngle(targetEulerAngles.z, axis * leanLimit, lerpTime));//Learps Vertically creating the effect of semi-rotation when you move, like a bird. To break and accelerate. 
+        target.localEulerAngles = new Vector3(targetEulerAngles.z, targetEulerAngles.y, Mathf.LerpAngle(targetEulerAngles.z, -axis * leanLimit, lerpTime));//Learps Vertically creating the effect of semi-rotation when you move, like a bird. To break and accelerate. 
     }
      //Lean = Inclinacion. 
     
+    IEnumerator BarrelRoll()
+    {
+       
+        yield return new WaitForSeconds(0.45f);
+        isBarrelRoll = false;
+        rotation.y = 0f;
+        
+    }
 }
