@@ -12,6 +12,7 @@ public class RandomEnemy : Enemy, IMoveable
     [SerializeField] GameObject maxX;
     [SerializeField] GameObject minZ;
     [SerializeField] GameObject maxZ;
+    Rigidbody rb;
 
     private float tChange = 0.0f; //force new direction in the first update;
     private float randomX;
@@ -25,6 +26,7 @@ public class RandomEnemy : Enemy, IMoveable
         maxX = GameManager.Instance.rightBoundary;
         minZ = GameManager.Instance.bottomBoundary;
         maxZ = GameManager.Instance.topBoundary;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -45,27 +47,26 @@ public class RandomEnemy : Enemy, IMoveable
     {
         if(Time.time >= tChange)
         {
-            randomX = Random.Range(-46,46);
-            randomZ = Random.Range(-46,46);
+            randomX = Random.Range(-43, 43);
+            randomZ = Random.Range(-45,45);
 
-            tChange = Time.time + Random.Range(0.5f, 1.5f);
+            tChange = Time.time + Random.Range(5f, 10f);
         }
 
         Vector3 newPosition = new Vector3(randomX, 0, randomZ);
-        transform.Translate(newPosition * moveSpeed * Time.deltaTime);
-
+        Vector3 myPosition = new Vector3(transform.position.x, 0, transform.position.z);
+        Vector3 newDirection = (newPosition - myPosition).normalized;
+        rb.velocity = newDirection * moveSpeed;
+        float distance = Vector3.Distance(newPosition, myPosition);
+       
         //if boundary is hit, change position.
 
-        if(transform.position.x >= maxX.transform.position.x || transform.position.x <= minX.transform.position.x)
+        if(distance < 1)
         {
-            randomX = -randomX;
-        }
+            randomX = Random.Range(-43, 43);
+            randomZ = Random.Range(-45, 45);
 
-      
-
-        if (transform.position.z >= maxZ.transform.position.z || transform.position.z <= minZ.transform.position.z)
-        {
-            randomZ = -randomZ;
+            tChange = Time.time + Random.Range(5f, 10f);
         }
 
         //Vector3 clampedPosition = transform.position;
@@ -74,16 +75,5 @@ public class RandomEnemy : Enemy, IMoveable
         //transform.position = clampedPosition;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject == GameManager.Instance.rightBoundary || collision.gameObject == GameManager.Instance.leftBoundary)
-        {
-            randomX = -randomX;
-        }
-
-        if(collision.gameObject == GameManager.Instance.topBoundary || collision.gameObject == GameManager.Instance.bottomBoundary)
-        {
-            randomZ = -randomZ;
-        }
-    }
+    
 }

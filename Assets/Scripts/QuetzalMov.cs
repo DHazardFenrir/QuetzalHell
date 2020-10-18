@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UIElements.Experimental;
+
 public class QuetzalMov : MonoBehaviour
 {
     private Transform playerQuetzal;
     private Rigidbody m_Rb;
     private Vector3 moveInput;
     Quaternion rotation;
+    Color[] colors = { Color.blue, Color.yellow, Color.red };
+    int i = 0;
 
 
     [SerializeField]bool isBarrelRoll;
    
     [SerializeField] float speed = 0;
+    [SerializeField] GameObject myShield;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +25,10 @@ public class QuetzalMov : MonoBehaviour
         playerQuetzal = this.transform;
         rotation = transform.localRotation;
         rotation.y = 1f;
+       if(myShield != null)
+        {
+            Debug.Log("I have Shield");
+        }
     }
 
     // Update is called once per frame
@@ -70,6 +79,13 @@ public class QuetzalMov : MonoBehaviour
        
         playerQuetzal.DOLocalRotate(new Vector3(playerQuetzal.localEulerAngles.x, playerQuetzal.rotation.y, 359* -dir), .4f, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
         StartCoroutine(BarrelRoll());
+        i++;
+        ChangeShield(i);
+
+        if(i == colors.Length)
+        {
+            i = 0;
+        }
     }
 
     void HorizontalLean(Transform target, float axis, float leanLimit, float lerpTime )
@@ -93,5 +109,35 @@ public class QuetzalMov : MonoBehaviour
         isBarrelRoll = false;
         rotation.y = 0f;
         
+    }
+
+    void Shoot()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+
+        }
+    }
+
+    void ChangeShield(int j)
+    {
+        var myShieldRendered = myShield.GetComponent<Renderer>();
+
+        if(j == 1)
+        {
+            myShieldRendered.material.SetColor("_Emission", colors[0]);
+        }
+
+        if (j == 2)
+        {
+            myShieldRendered.material.SetColor("_Emission", colors[1]);
+        }
+
+        if (j == 3)
+        {
+            myShieldRendered.material.SetColor("_Emission", colors[2]);
+        }
+
+
     }
 }

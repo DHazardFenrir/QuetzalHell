@@ -6,33 +6,36 @@ public class LinearEnemy : Enemy, IMoveable
 {
     [SerializeField] int healthPoint;
     [SerializeField] float moveSpeed;
-
+    [SerializeField] GameObject minX;
+    [SerializeField] GameObject maxX;
     [SerializeField] GameObject minZ;
     [SerializeField] GameObject maxZ;
-    private Rigidbody rb;
-
-    [SerializeField] bool maxChangeZ;
-    [SerializeField] bool minChangeZ;
-    private float randomZ;
+    [SerializeField] int numofProjectile;
+    Rigidbody rb;
+   RadioBulletController rad;
 
     private float tChange = 0.0f; //force new direction in the first update;
-
+   
+    private float randomZ;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        minX = GameManager.Instance.leftBoundary;
+        maxX = GameManager.Instance.rightBoundary;
         minZ = GameManager.Instance.bottomBoundary;
         maxZ = GameManager.Instance.topBoundary;
         rb = GetComponent<Rigidbody>();
-
+        if(rad == null)
+        rad = GetComponent<RadioBulletController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+        Shoot();
     }
 
 
@@ -40,58 +43,42 @@ public class LinearEnemy : Enemy, IMoveable
 
     public override void Shoot()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(Shooting());
     }
 
     public void Move()
     {
         if (Time.time >= tChange)
         {
+          
+            randomZ = Random.Range(-45, 45);
 
-
-
-            tChange = Time.time + Random.Range(0.5f, 1.5f);
+            tChange = Time.time + Random.Range(5f, 10f);
         }
 
+        Vector3 newPosition = new Vector3(transform.position.x, 0, randomZ);
+        Vector3 myPosition = new Vector3(transform.position.x, 0, transform.position.z);
+        Vector3 newDirection = (newPosition - myPosition).normalized;
+        rb.velocity = newDirection * moveSpeed;
+        float distance = Vector3.Distance(newPosition, myPosition);
 
         //if boundary is hit, change position.
 
-
-
-        if (transform.position.z >= maxZ.transform.position.z)
+        if (distance < 1)
         {
-            rb.velocity = Vector3.back * moveSpeed;
-            maxChangeZ = true;
-        }
-        else if (transform.position.z >= minZ.transform.position.z)
-        {
-            rb.velocity = Vector3.forward * moveSpeed;
-            minChangeZ = true;
-            maxChangeZ = false;
+           
+            randomZ = Random.Range(-45, 45);
+
+            tChange = Time.time + Random.Range(5f, 10f);
         }
 
-        //Vector3 clampedPosition = transform.position;
-        //clampedPosition.x = Mathf.Clamp(transform.position.x, minX.transform.position.x, maxX.transform.position.x);
-        //clampedPosition.z = Mathf.Clamp(transform.position.z, minX.transform.position.z, maxX.transform.position.z);
-        //transform.position = clampedPosition;
     }
-    private void OnCollisionEnter(Collision collision)
+
+    IEnumerator Shooting()
     {
+        rad.SpawnPorjectile(numofProjectile);
+        yield return new WaitForSeconds(2.5f);
 
-        if (collision.gameObject == GameManager.Instance.topBoundary)
-        {
-            Debug.Log("Estoy colisionando con el limite derecho");
-            rb.velocity = Vector3.back * moveSpeed;
-
-        }
-        else if (collision.gameObject == GameManager.Instance.bottomBoundary)
-        {
-            Debug.Log("Estoy colisionando con el limite izquierdo");
-            rb.velocity = Vector3.forward * moveSpeed;
-
-
-
-        }
     }
 }
 

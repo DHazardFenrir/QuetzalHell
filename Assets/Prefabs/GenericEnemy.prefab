@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: 1500546593191436952}
   - component: {fileID: 3956652800565694225}
   - component: {fileID: 7393889709483604599}
-  - component: {fileID: 3114426111541797381}
-  m_Layer: 0
+  - component: {fileID: 2686002948507982358}
+  - component: {fileID: 8573830811401215877}
+  - component: {fileID: 734349018018519906}
+  m_Layer: 8
   m_Name: GenericEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -95,7 +97,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3956652800565694225
 MonoBehaviour:
@@ -104,13 +106,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6695018344654418542}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd3cb2c973933ad429f96a460cd27bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoint: 1
-  moveSpeed: 4
+  moveSpeed: 10
   minX: {fileID: 0}
   maxX: {fileID: 0}
   minZ: {fileID: 0}
@@ -129,9 +131,9 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &3114426111541797381
+--- !u!114 &2686002948507982358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,10 +147,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoint: 1
   moveSpeed: 5
+  minX: {fileID: 0}
+  maxX: {fileID: 0}
   minZ: {fileID: 0}
   maxZ: {fileID: 0}
-  maxChangeZ: 0
-  minChangeZ: 0
+  numofProjectile: 3
+--- !u!114 &8573830811401215877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6695018344654418542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e91d7a3a5349e34392b8a85038c8600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  numOfProjectiles: 3
+--- !u!114 &734349018018519906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6695018344654418542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeeac49baa6f1345aaeca7dd63da7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilesSpeed: 4
+  projectilePrefab: {fileID: 8958090213783109989, guid: 261b052083783314a90f931944f3eb8d,
+    type: 3}
+  startPoint: {fileID: 6730659142345601246}
+  rotationSpeed: 20
 --- !u!1 &6730659142345601246
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4855855044518994669}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: startPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
