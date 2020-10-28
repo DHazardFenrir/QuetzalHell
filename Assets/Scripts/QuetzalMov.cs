@@ -12,6 +12,7 @@ public class QuetzalMov : MonoBehaviour
     Quaternion rotation;
     Color[] colors = { Color.blue, Color.yellow, Color.red };
     int i = 0;
+   
 
 
     [SerializeField]bool isBarrelRoll;
@@ -25,10 +26,8 @@ public class QuetzalMov : MonoBehaviour
         playerQuetzal = this.transform;
         rotation = transform.localRotation;
         rotation.y = 1f;
-       if(myShield != null)
-        {
-            Debug.Log("I have Shield");
-        }
+         
+       
     }
 
     // Update is called once per frame
@@ -67,9 +66,13 @@ public class QuetzalMov : MonoBehaviour
         {
             VerticalLean(playerQuetzal, h, 20, 1f);
         }
+
+     
     }
 
    
+
+
 
     void QuickSpin(int dir)
     {
@@ -111,13 +114,7 @@ public class QuetzalMov : MonoBehaviour
         
     }
 
-    void Shoot()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-
-        }
-    }
+  
 
     void ChangeShield(int j)
     {

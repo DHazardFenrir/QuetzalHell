@@ -10,6 +10,15 @@ public class GameManager : MonoBehaviour
     public GameObject topBoundary;                    // is not able to leave the screen.
     public GameObject bottomBoundary;
 
+    public GameObject secondLeftBounday;
+    public GameObject secondRightBounday;
+
+    public GameObject secondTopBounday;
+    public GameObject secondBottomBounday;
+
+
+
+
     private void Awake()
     {
         if(Instance == null)

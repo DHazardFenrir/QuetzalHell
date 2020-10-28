@@ -13,6 +13,7 @@ public class RandomEnemy : Enemy, IMoveable
     [SerializeField] GameObject minZ;
     [SerializeField] GameObject maxZ;
     Rigidbody rb;
+    
 
     private float tChange = 0.0f; //force new direction in the first update;
     private float randomX;

@@ -140,7 +140,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6695018344654418542}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc4f3cdc07f60a54f94f636a221423e4, type: 3}
   m_Name: 
@@ -148,10 +148,12 @@ MonoBehaviour:
   healthPoint: 1
   moveSpeed: 5
   minX: {fileID: 0}
-  maxX: {fileID: 0}
-  minZ: {fileID: 0}
-  maxZ: {fileID: 0}
-  numofProjectile: 3
+  m: {fileID: 0}
+  minZ: 0
+  maxZ: 0
+  numofProjectile: 1
+  timeBetweenShots: 10
+  shotFired: 0
 --- !u!114 &8573830811401215877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6695018344654418542}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e91d7a3a5349e34392b8a85038c8600, type: 3}
   m_Name: 
@@ -178,11 +180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeeac49baa6f1345aaeca7dd63da7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilesSpeed: 4
+  projectilesSpeed: 50
   projectilePrefab: {fileID: 8958090213783109989, guid: 261b052083783314a90f931944f3eb8d,
     type: 3}
   startPoint: {fileID: 6730659142345601246}
-  rotationSpeed: 20
+  rotationSpeed: 45
 --- !u!1 &6730659142345601246
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6730659142345601246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.86, y: 0, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1393352781988903111}

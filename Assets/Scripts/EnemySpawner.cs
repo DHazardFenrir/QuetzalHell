@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject minZ;
     [SerializeField] GameObject maxZ;
     [SerializeField]int  enemyCount;
+    [SerializeField] int numEnemies;
 
     private float xPos;
     private float zPos;
@@ -18,10 +19,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        minX = GameManager.Instance.leftBoundary;
-        maxX = GameManager.Instance.rightBoundary;
-        minZ = GameManager.Instance.bottomBoundary;
-        maxZ = GameManager.Instance.topBoundary;
+        
         StartCoroutine(EnemyDrop());
        
     }
@@ -34,10 +32,10 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator EnemyDrop()
     {
-        while(enemyCount < 10)
+        while(enemyCount < numEnemies)
         {
             randomX = Random.Range(minX.transform.position.x, maxX.transform.position.x);
-            randomZ = Random.Range(minZ.transform.position.z, maxX.transform.position.z);
+            randomZ = Random.Range(minZ.transform.position.z, maxZ.transform.position.z);
             
             Instantiate(enemy, new Vector3(randomX, 0, randomZ), Quaternion.identity);
             yield return new WaitForSeconds(.01f);

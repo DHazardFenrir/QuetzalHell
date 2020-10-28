@@ -7,10 +7,17 @@ public class LinearEnemy : Enemy, IMoveable
     [SerializeField] int healthPoint;
     [SerializeField] float moveSpeed;
     [SerializeField] GameObject minX;
-    [SerializeField] GameObject maxX;
-    [SerializeField] GameObject minZ;
-    [SerializeField] GameObject maxZ;
+    [SerializeField] GameObject m;
+    [SerializeField] float minZ;
+    [SerializeField] float maxZ;
     [SerializeField] int numofProjectile;
+    [SerializeField] float timeBetweenShots = 100f;
+    [SerializeField] bool shotFired = false;
+
+  
+
+
+    float startTimeBetweenShots = 0.0f;
     Rigidbody rb;
    RadioBulletController rad;
 
@@ -22,11 +29,10 @@ public class LinearEnemy : Enemy, IMoveable
     // Start is called before the first frame update
     void Start()
     {
-        minX = GameManager.Instance.leftBoundary;
-        maxX = GameManager.Instance.rightBoundary;
-        minZ = GameManager.Instance.bottomBoundary;
-        maxZ = GameManager.Instance.topBoundary;
+       
         rb = GetComponent<Rigidbody>();
+
+        
         if(rad == null)
         rad = GetComponent<RadioBulletController>();
     }
@@ -43,7 +49,15 @@ public class LinearEnemy : Enemy, IMoveable
 
     public override void Shoot()
     {
-        StartCoroutine(Shooting());
+       if(timeBetweenShots <= 0)
+        {
+            rad.SpawnPorjectile(numofProjectile);
+            timeBetweenShots = startTimeBetweenShots;
+        }
+        else
+        {
+            timeBetweenShots -= Time.deltaTime;
+        }
     }
 
     public void Move()
@@ -74,12 +88,7 @@ public class LinearEnemy : Enemy, IMoveable
 
     }
 
-    IEnumerator Shooting()
-    {
-        rad.SpawnPorjectile(numofProjectile);
-        yield return new WaitForSeconds(2.5f);
-
-    }
+    
 }
 
 

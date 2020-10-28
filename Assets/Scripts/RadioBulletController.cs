@@ -10,6 +10,7 @@ public class RadioBulletController : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] GameObject startPoint;
     [SerializeField] float rotationSpeed = 45f;
+  
 
     
     
@@ -26,9 +27,9 @@ public class RadioBulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-            startPosition = startPoint.transform.position;
-           
+
+        startPosition = startPoint.transform.position;
+        
        
        
         
@@ -61,7 +62,9 @@ public class RadioBulletController : MonoBehaviour
             projectilePrefab.transform.Rotate(new Vector3(0, 0, 45) * Time.deltaTime);
             Destroy(tempObj, 10f);
            
-            angle += angleStep *i;
+            angle += angleStep * i;
         }
     }
+
+   
 }
