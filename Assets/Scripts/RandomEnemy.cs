@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
-public class RandomEnemy : Enemy, IMoveable
+public class RandomEnemy : MonoBehaviour, IMoveable
 {
     [SerializeField] int healthPoint;
     [SerializeField] float moveSpeed;
@@ -19,7 +19,10 @@ public class RandomEnemy : Enemy, IMoveable
     private float randomX;
     private float randomZ;
 
-
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +30,7 @@ public class RandomEnemy : Enemy, IMoveable
         maxX = GameManager.Instance.rightBoundary;
         minZ = GameManager.Instance.bottomBoundary;
         maxZ = GameManager.Instance.topBoundary;
-        rb = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -39,10 +42,7 @@ public class RandomEnemy : Enemy, IMoveable
    
     
 
-    public override void Shoot()
-    {
-        throw new System.NotImplementedException();
-    }
+  
 
     public void Move()
     {

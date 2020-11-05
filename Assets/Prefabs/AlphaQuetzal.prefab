@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 4761520840207348974}
   - component: {fileID: 4761520840207348975}
   - component: {fileID: 3532399256769408961}
+  - component: {fileID: 6002836693480225825}
   m_Layer: 0
   m_Name: AlphaQuetzal
   m_TagString: Untagged
@@ -188,7 +189,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fcd71bb57e74ad943b5f9fb34df9a14c, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -247,11 +248,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4761520840207348981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b09ff628d7391234cbe4d69dfe11cfca, type: 3}
+  m_Script: {fileID: 11500000, guid: f204080cff21100489b64241d5db5d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isBarrelRoll: 0
-  speed: 25
+  speed: 50
   myShield: {fileID: 0}
 --- !u!114 &3532399256769408961
 MonoBehaviour:
@@ -265,10 +266,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3701d99571a2043bc205045bfacd83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myShotPoint: {fileID: 2702162656490093222}
+  myShotPoint: {fileID: 5892847433088824517}
   bulletRb: {fileID: 3642657093599898696, guid: a83c5b6e876ef6341ad4bd898d7751d2,
     type: 3}
-  bulletSpeed: 0
+  bulletSpeed: 10
+--- !u!114 &6002836693480225825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4761520840207348981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef4143036b8ddb4daf6d40741cfc4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 100
 --- !u!1 &8824320595631757073
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +342,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fcd71bb57e74ad943b5f9fb34df9a14c, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

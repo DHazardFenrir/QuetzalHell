@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class LinearEnemy : Enemy, IMoveable
 {
-    [SerializeField] int healthPoint;
+   
     [SerializeField] float moveSpeed;
-    [SerializeField] GameObject minX;
-    [SerializeField] GameObject m;
-    [SerializeField] float minZ;
-    [SerializeField] float maxZ;
-    [SerializeField] int numofProjectile;
-    [SerializeField] float timeBetweenShots = 100f;
-    [SerializeField] bool shotFired = false;
+  
+    [SerializeField] GameObject minZ;
+    [SerializeField] GameObject maxZ;
+    
+    [SerializeField] float timeBetweenShots;
 
+    [SerializeField] bool canShoot;
+     
   
 
 
-    float startTimeBetweenShots = 0.0f;
+  
     Rigidbody rb;
-   RadioBulletController rad;
+
 
     private float tChange = 0.0f; //force new direction in the first update;
    
@@ -32,40 +32,48 @@ public class LinearEnemy : Enemy, IMoveable
        
         rb = GetComponent<Rigidbody>();
 
-        
-        if(rad == null)
-        rad = GetComponent<RadioBulletController>();
+        minZ = GameManager.Instance.secondBottomBounday;
+        maxZ = GameManager.Instance.secondTopBounday;
+
+        canShoot = false;
+
+
+     
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        
         Move();
-        Shoot();
+        if (canShoot && timeBetweenShots > 0)
+            Shoot();
+
+        timeBetweenShots -= Time.deltaTime;
+
+        if (timeBetweenShots <= 0)
+        {
+            canShoot = false;
+            timeBetweenShots = 100f;
+        }
+         
+        
+
     }
 
 
 
 
-    public override void Shoot()
-    {
-       if(timeBetweenShots <= 0)
-        {
-            rad.SpawnPorjectile(numofProjectile);
-            timeBetweenShots = startTimeBetweenShots;
-        }
-        else
-        {
-            timeBetweenShots -= Time.deltaTime;
-        }
-    }
+   
 
     public void Move()
     {
         if (Time.time >= tChange)
         {
           
-            randomZ = Random.Range(-45, 45);
+            randomZ = Random.Range(minZ.transform.position.z, maxZ.transform.position.z);
 
             tChange = Time.time + Random.Range(5f, 10f);
         }
@@ -81,14 +89,16 @@ public class LinearEnemy : Enemy, IMoveable
         if (distance < 1)
         {
            
-            randomZ = Random.Range(-45, 45);
+            randomZ = Random.Range(minZ.transform.position.z, maxZ.transform.position.z);
 
             tChange = Time.time + Random.Range(5f, 10f);
         }
 
     }
 
-    
+   
+
+
 }
 
 

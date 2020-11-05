@@ -4,8 +4,9 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UIElements.Experimental;
 
-public class QuetzalMov : MonoBehaviour
+public class QuetzalPlayer : MonoBehaviour
 {
+    
     private Transform playerQuetzal;
     private Rigidbody m_Rb;
     private Vector3 moveInput;
@@ -137,4 +138,6 @@ public class QuetzalMov : MonoBehaviour
 
 
     }
+
+   
 }

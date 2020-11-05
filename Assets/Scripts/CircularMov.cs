@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircularMov : Enemy, IMoveable
+public class CircularMov : MonoBehaviour, IMoveable
 {
     private float Rotation;
-    [SerializeField]private float speed = 2;
+    [SerializeField] private float speed = 2;
     [SerializeField] int numOfProjectiles;
     GameObject minX;
     GameObject maxX;
@@ -16,7 +16,7 @@ public class CircularMov : Enemy, IMoveable
     float randomX;
     float randomZ;
 
-    RadioBulletController rad;
+   
     public void Move()
     {
         if (Rotation == 360)
@@ -55,30 +55,18 @@ public class CircularMov : Enemy, IMoveable
 
     void Start()
     {
-        minX = GameManager.Instance.rightBoundary;
-        maxX = GameManager.Instance.leftBoundary;
-        minZ = GameManager.Instance.topBoundary;
-        maxZ = GameManager.Instance.bottomBoundary;
+
         rb = GetComponent<Rigidbody>();
 
-        rad = GetComponent<RadioBulletController>();
+
     }
-  
+
     // Update is called once per frame
     void Update()
     {
         Move();
-        Shoot();
-    }
 
-    IEnumerator Shooting()
-    {
-        rad.SpawnPorjectile(numOfProjectiles);
-        yield return new WaitForSeconds(2.5f);
-    }
-
-    public override void Shoot()
-    {
-        StartCoroutine(Shooting());
     }
 }
+
+  

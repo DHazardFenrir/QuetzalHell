@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3956652800565694225}
   - component: {fileID: 7393889709483604599}
   - component: {fileID: 2686002948507982358}
-  - component: {fileID: 8573830811401215877}
   - component: {fileID: 734349018018519906}
   m_Layer: 8
   m_Name: GenericEnemy
@@ -145,29 +144,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4f3cdc07f60a54f94f636a221423e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoint: 1
+  healthPoints: 1
+  featherPoints: 100
+  rad: {fileID: 0}
+  shots: 0
   moveSpeed: 5
-  minX: {fileID: 0}
-  m: {fileID: 0}
-  minZ: 0
-  maxZ: 0
+  minZ: {fileID: 0}
+  maxZ: {fileID: 0}
   numofProjectile: 1
   timeBetweenShots: 10
-  shotFired: 0
---- !u!114 &8573830811401215877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6695018344654418542}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e91d7a3a5349e34392b8a85038c8600, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  numOfProjectiles: 3
+  canShoot: 1
 --- !u!114 &734349018018519906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilesSpeed: 50
-  projectilePrefab: {fileID: 8958090213783109989, guid: 261b052083783314a90f931944f3eb8d,
+  projectilePrefab: {fileID: 8958090213783109989, guid: d4b9a746434ab134ca22fc3ed341fb42,
     type: 3}
   startPoint: {fileID: 6730659142345601246}
   rotationSpeed: 45

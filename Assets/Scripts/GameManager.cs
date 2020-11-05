@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject secondTopBounday;
     public GameObject secondBottomBounday;
 
+    public float points;
+
 
 
 

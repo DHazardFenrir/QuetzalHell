@@ -2,9 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPlayer : MonoBehaviour
+public class HealthPlayer : MonoBehaviour, IDamageable
 {
-    // Start is called before the first frame update
+    [SerializeField] int healthPoints;
+
+    public void Damage(int amount)
+    {
+        healthPoints -= amount;
+
+        if(healthPoints <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     void Start()
     {
         
