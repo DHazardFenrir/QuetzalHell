@@ -20,7 +20,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: efd9cbfa6662a1f409d7530e935b1cf0, type: 2}
     - {fileID: 11400000, guid: f07abb3f72b31bf4dbcbafe3d8ebbc25, type: 2}
     - {fileID: 11400000, guid: 26a07fd89fc48884da3c16e1be5d747b, type: 2}
-    type: 0
+    type:
+    - {fileID: 11400000, guid: 80fb9d7d1583252449aaf732ab2de6ba, type: 2}
+    - {fileID: 11400000, guid: aa06f9125cd9d504fa804d715a615b40, type: 2}
+    - {fileID: 11400000, guid: da404aeddff86324aa01ae11a0373daa, type: 2}
   sprite: {fileID: 0}
   prefab: {fileID: 0}
   activePowerUp:

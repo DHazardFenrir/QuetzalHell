@@ -6,8 +6,9 @@ using UnityEngine;
 public class PlayerShield : MonoBehaviour
 {
     [SerializeField] GameObject myShield;
-    PlayerData data = default;
-    Color[] colors = { Color.blue, Color.yellow, Color.red };
+    [SerializeField]PlayerData data = default;
+    private int currentType;
+    Color[] colors = { Color.red, Color.blue, Color.yellow};
 
   
     // Start is called before the first frame update
@@ -36,7 +37,7 @@ public class PlayerShield : MonoBehaviour
 
         }
 
-     
+        currentType = numb - 1;
 
     }
 
@@ -54,16 +55,15 @@ public class PlayerShield : MonoBehaviour
 
     public void NoDamageShield(BulletType type)
     {
-        for(int i=0; i < data.baseStats.bulletType.Length; i++)
+       
+
+        if (data.baseStats.bulletType[currentType].Equals(type))
         {
-            if (data.baseStats.bulletType[i].Equals(type) && data.baseStats.type[i])
-            {
-                Debug.Log("No Damage");
-            }
-            else
-            {
-                Debug.Log("Damage");
-            }
+            Debug.Log("No Damage");
+        }
+        else
+        {
+            Debug.Log("Damage");
         }
     }
 

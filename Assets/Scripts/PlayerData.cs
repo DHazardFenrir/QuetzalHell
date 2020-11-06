@@ -19,7 +19,7 @@ public struct PlayerBaseStats
     public int attackSpeed;
     public float range;
     public BulletType[] bulletType;
-    public PlayerTypeShield[] type;
+   
     //ActivePowerUp;
 }
 
