@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 
+public enum Type { red, blue, yellow}
 public class Bullet : MonoBehaviour
 {
     [SerializeField] int damage;
+    [SerializeField] BulletType type = default;
     // Start is called before the first frame update
-   
+
+    public BulletType Type { get { return type; } }
+    
 
     private void OnTriggerEnter(Collider other)
     {

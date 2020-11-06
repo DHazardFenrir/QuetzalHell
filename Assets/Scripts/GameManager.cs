@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +20,10 @@ public class GameManager : MonoBehaviour
 
     public float points;
 
+    [SerializeField] GameObject gameOverPanel;
+
+   
+
 
 
 
@@ -31,5 +37,22 @@ public class GameManager : MonoBehaviour
         {
             Destroy(Instance);
         }
+    }
+
+    public void ShowGameOver()
+    {
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Level01");
+        Time.timeScale = 1f;
+    }
+ public void QuitGame()
+    {
+        Application.Quit();
     }
 }

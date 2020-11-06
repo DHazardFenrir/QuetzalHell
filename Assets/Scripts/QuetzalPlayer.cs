@@ -6,20 +6,21 @@ using UnityEngine.UIElements.Experimental;
 
 public class QuetzalPlayer : MonoBehaviour
 {
-    
+
     private Transform playerQuetzal;
     private Rigidbody m_Rb;
     private Vector3 moveInput;
     Quaternion rotation;
-    Color[] colors = { Color.blue, Color.yellow, Color.red };
+    [SerializeField] PlayerData data = default;
     int i = 0;
-   
+    PlayerShield myShield;
 
 
-    [SerializeField]bool isBarrelRoll;
-   
+
+    [SerializeField] bool isBarrelRoll;
+
     [SerializeField] float speed = 0;
-    [SerializeField] GameObject myShield;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +28,9 @@ public class QuetzalPlayer : MonoBehaviour
         playerQuetzal = this.transform;
         rotation = transform.localRotation;
         rotation.y = 1f;
-         
-       
+
+        myShield = GetComponent<PlayerShield>();
+
     }
 
     // Update is called once per frame
@@ -52,7 +54,7 @@ public class QuetzalPlayer : MonoBehaviour
                 // HAK: Use the Horizontal axis to get the proper direction
                 QuickSpin(h > 0 ? 1 : -1);
             }
-           
+
 
 
 
@@ -68,10 +70,10 @@ public class QuetzalPlayer : MonoBehaviour
             VerticalLean(playerQuetzal, h, 20, 1f);
         }
 
-     
+
     }
 
-   
+
 
 
 
@@ -80,19 +82,20 @@ public class QuetzalPlayer : MonoBehaviour
         if (isBarrelRoll)
             return;
         isBarrelRoll = true;
-       
-        playerQuetzal.DOLocalRotate(new Vector3(playerQuetzal.localEulerAngles.x, playerQuetzal.rotation.y, 359* -dir), .4f, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
+
+        playerQuetzal.DOLocalRotate(new Vector3(playerQuetzal.localEulerAngles.x, playerQuetzal.rotation.y, 359 * -dir), .4f, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
         StartCoroutine(BarrelRoll());
         i++;
-        ChangeShield(i);
-
-        if(i == colors.Length)
+        myShield.ChangeShield(i);
+      
+        if(i >= 3)
         {
             i = 0;
         }
+      
     }
 
-    void HorizontalLean(Transform target, float axis, float leanLimit, float lerpTime )
+    void HorizontalLean(Transform target, float axis, float leanLimit, float lerpTime)
     {
         Vector3 targetEulerAngles = target.localEulerAngles;
         target.localEulerAngles = new Vector3(targetEulerAngles.x, targetEulerAngles.y, Mathf.LerpAngle(targetEulerAngles.z, axis * leanLimit, lerpTime)); //Learps Horizontally creating the effect of semi-rotation when you move, like a bird.
@@ -104,40 +107,24 @@ public class QuetzalPlayer : MonoBehaviour
         Vector3 targetEulerAngles = target.localEulerAngles;
         target.localEulerAngles = new Vector3(targetEulerAngles.z, targetEulerAngles.y, Mathf.LerpAngle(targetEulerAngles.z, -axis * leanLimit, lerpTime));//Learps Vertically creating the effect of semi-rotation when you move, like a bird. To break and accelerate. 
     }
-     //Lean = Inclinacion. 
-    
+    //Lean = Inclinacion. 
+
     IEnumerator BarrelRoll()
     {
-       
+
         yield return new WaitForSeconds(0.45f);
         isBarrelRoll = false;
         rotation.y = 0f;
-        
+
     }
+
+
 
   
 
-    void ChangeShield(int j)
-    {
-        var myShieldRendered = myShield.GetComponent<Renderer>();
-
-        if(j == 1)
-        {
-            myShieldRendered.material.SetColor("_Emission", colors[0]);
-        }
-
-        if (j == 2)
-        {
-            myShieldRendered.material.SetColor("_Emission", colors[1]);
-        }
-
-        if (j == 3)
-        {
-            myShieldRendered.material.SetColor("_Emission", colors[2]);
-        }
-
-
-    }
-
    
+    
 }
+
+
+

@@ -21,8 +21,14 @@ public class Shop : MonoBehaviour
     public void OpenShop()
     {
         craftWindow.SetActive(true);
-        shopPowerUp.SetActive(true);
+        shopPowerUp.SetActive(false);
 
+    }
+
+    public void Clean()
+    {
+        DestroyAllChildren(powerUpCraftedParent);
+        OpenPowerUpShop();
     }
 
     private void DestroyAllChildren(Transform parent)
@@ -34,6 +40,14 @@ public class Shop : MonoBehaviour
     }
 
     private void OpenPowerUpShop()
+    {
+        shopPowerUp.SetActive(true);
+        craftWindow.SetActive(false);
+        DestroyAllChildren(powerUpCraftedParent);
+
+    }
+
+    public void TryBuyPowerUp()
     {
 
     }

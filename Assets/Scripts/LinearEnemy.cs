@@ -10,6 +10,7 @@ public class LinearEnemy : Enemy, IMoveable
     [SerializeField] GameObject minZ;
     [SerializeField] GameObject maxZ;
     
+
     [SerializeField] float timeBetweenShots;
 
     [SerializeField] bool canShoot;

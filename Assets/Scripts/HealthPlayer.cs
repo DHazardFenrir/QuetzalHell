@@ -13,6 +13,7 @@ public class HealthPlayer : MonoBehaviour, IDamageable
         if(healthPoints <= 0)
         {
             Destroy(this.gameObject);
+            GameManager.Instance.ShowGameOver();
         }
     }
 
