@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UIElements.Experimental;
+using System;
 
 public class QuetzalPlayer : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class QuetzalPlayer : MonoBehaviour
     [SerializeField] bool isBarrelRoll;
 
     [SerializeField] float speed = 0;
+
+  
  
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,7 @@ public class QuetzalPlayer : MonoBehaviour
         rotation.y = 1f;
 
         myShield = GetComponent<PlayerShield>();
+        
 
     }
 
@@ -116,6 +120,12 @@ public class QuetzalPlayer : MonoBehaviour
         isBarrelRoll = false;
         rotation.y = 0f;
 
+    }
+
+    public PlayerData PowerUpStats(PowerUp powerup)
+    {
+        PlayerData newData = powerup.powerUp;
+        return newData;
     }
 
 

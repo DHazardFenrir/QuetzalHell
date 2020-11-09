@@ -8,6 +8,7 @@ public class PlayerData : ScriptableObject
     //stats
     public PlayerBaseStats baseStats;
     public Sprite sprite;
+    public string playerName = "PU name";
     public GameObject prefab;
     public PowerUp activePowerUp;
 }

@@ -7,28 +7,25 @@ public class Shop : MonoBehaviour
 {
     [SerializeField] ShopStatus statusValue = default;
     [SerializeField] Image currentPowerUpImage = default;
-    [SerializeField] Transform powerUpCraftedParent = default;
-    [SerializeField] GameObject powerUpCraftedPrefab = default;
+    [SerializeField] GameObject powerUpPrefab = default;
+ 
     [SerializeField] Inventory inventory = default;
     [SerializeField] GameObject shopPowerUp = default;
-    [SerializeField] GameObject craftWindow = default;
-
+    [SerializeField] Transform shopPowerUpParent = default;
+    QuetzalPlayer player;
+    PlayerData data;
+ 
     private void Start()
     {
-        
+        OpenPowerUpShop();
     }
 
-    public void OpenShop()
-    {
-        craftWindow.SetActive(true);
-        shopPowerUp.SetActive(false);
-
-    }
+  
 
     public void Clean()
     {
-        DestroyAllChildren(powerUpCraftedParent);
-        OpenPowerUpShop();
+        DestroyAllChildren(shopPowerUpParent);
+      
     }
 
     private void DestroyAllChildren(Transform parent)
@@ -42,13 +39,23 @@ public class Shop : MonoBehaviour
     private void OpenPowerUpShop()
     {
         shopPowerUp.SetActive(true);
-        craftWindow.SetActive(false);
-        DestroyAllChildren(powerUpCraftedParent);
+      
+       
+        
 
     }
 
-    public void TryBuyPowerUp()
+    public void TryBuyPowerUp(PowerUp powerup)
     {
+        if(inventory.CurrentFeatherPoints >= powerup.cost)
+        {
+            inventory.ReduceFeatherPoints(powerup.cost);
+            PowerUp pu = data.activePowerUp;
+            player.PowerUpStats(pu);
+           
+            
 
+            
+        }
     }
 }
