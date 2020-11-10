@@ -10,7 +10,7 @@ public class PlayerData : ScriptableObject
     public Sprite sprite;
     public string playerName = "PU name";
     public GameObject prefab;
-    public PowerUp activePowerUp;
+    public PowerUp[] activePowerUp;
 }
 
 [System.Serializable]
@@ -20,7 +20,7 @@ public struct PlayerBaseStats
     public int attackSpeed;
     public float range;
     public BulletType[] bulletType;
-   
+    public PowerUp powerUp;
     //ActivePowerUp;
 }
 

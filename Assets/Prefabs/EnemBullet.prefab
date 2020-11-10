@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2033361158890213507}
   - component: {fileID: 5817781526700886438}
   - component: {fileID: 2550990940802918611}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  type: {fileID: 0}

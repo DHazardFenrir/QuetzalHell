@@ -1905,6 +1905,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef4143036b8ddb4daf6d40741cfc4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &640798502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4761520840207348975, guid: ecb595ba9a187a9469da3f43cbe0017b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4761520838320579738}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640798498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f204080cff21100489b64241d5db5d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
@@ -3028,12 +3040,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 234b680da3157fc468f2d24ecae2b2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusValue: {fileID: 0}
   currentPowerUpImage: {fileID: 2082246664}
-  powerUpPrefab: {fileID: 0}
+  powerUpPrefab: {fileID: 1045640825}
   inventory: {fileID: 845372969}
   shopPowerUp: {fileID: 1708045743}
   shopPowerUpParent: {fileID: 1708045744}
+  player: {fileID: 640798502}
 --- !u!1 &1066936717
 GameObject:
   m_ObjectHideFlags: 0
@@ -5672,6 +5684,17 @@ PrefabInstance:
       propertyPath: myShotPoint
       value: 
       objectReference: {fileID: 1144294339}
+    - target: {fileID: 3532399256769408961, guid: ecb595ba9a187a9469da3f43cbe0017b,
+        type: 3}
+      propertyPath: bulletRb
+      value: 
+      objectReference: {fileID: 384877498273028375, guid: a83c5b6e876ef6341ad4bd898d7751d2,
+        type: 3}
+    - target: {fileID: 3532399256769408961, guid: ecb595ba9a187a9469da3f43cbe0017b,
+        type: 3}
+      propertyPath: timeBetweenShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4761520840207348969, guid: ecb595ba9a187a9469da3f43cbe0017b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
+using UnityEditor;
 using UnityEngine;
 
 public enum Type { red, blue, yellow}
@@ -8,10 +9,22 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] int damage;
     [SerializeField] BulletType type = default;
+    [SerializeField] GameObject bullet;
+    [SerializeField] float speed;
+    Rigidbody rb;
+
     // Start is called before the first frame update
 
     public BulletType Type { get { return type; } }
-    
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>(); 
+    }
+    private void Update()
+    {
+        rb.velocity = Vector3.forward * speed;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

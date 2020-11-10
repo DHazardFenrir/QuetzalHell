@@ -20,9 +20,14 @@ MonoBehaviour:
     - {fileID: 11400000, guid: efd9cbfa6662a1f409d7530e935b1cf0, type: 2}
     - {fileID: 11400000, guid: f07abb3f72b31bf4dbcbafe3d8ebbc25, type: 2}
     - {fileID: 11400000, guid: 26a07fd89fc48884da3c16e1be5d747b, type: 2}
+    powerUp:
+      cost: 0
+      powerUp: {fileID: 0}
   sprite: {fileID: 0}
   playerName: Basic
   prefab: {fileID: 4761520840207348981, guid: ecb595ba9a187a9469da3f43cbe0017b, type: 3}
   activePowerUp:
-    cost: 30
+  - cost: 30
     powerUp: {fileID: 11400000, guid: 7a310bb4a0fda7a46ae651622278254e, type: 2}
+  - cost: 30
+    powerUp: {fileID: 11400000, guid: daa5df148c3514044b2d667120ef5411, type: 2}

@@ -5,27 +5,28 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] Transform myShotPoint;
-    [SerializeField] Rigidbody bulletRb;
-    [SerializeField] float bulletSpeed;
-    Rigidbody bulletInstance;
+    [SerializeField] GameObject bulletPrefab;
+   
 
-    void Start()
-    {
-    }
+    public float timeBetweenShoot;
+    private float TimeOfLastShoot;
+
+   
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if (Input.GetMouseButtonDown(0))
-        {
+        { if(Time.time > TimeOfLastShoot - timeBetweenShoot)
             Shoot();
         }
-        
+
     }
 
     void Shoot()
     {
-         bulletInstance = Instantiate(bulletRb, myShotPoint.position, myShotPoint.rotation);
-        bulletInstance.velocity = Vector3.forward * bulletSpeed;
+        Instantiate(bulletPrefab, myShotPoint.position, myShotPoint.rotation);
+        TimeOfLastShoot = Time.time;
     }
+       
 }

@@ -50,14 +50,13 @@ public class QuetzalPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
+           
                 //int dir = Input.GetKeyDown(KeyCode.Space) ? -1 : 1;
                 //QuickSpin(dir);
 
                 // HAK: Use the Horizontal axis to get the proper direction
                 QuickSpin(h > 0 ? 1 : -1);
-            }
+            
 
 
 
@@ -129,7 +128,10 @@ public class QuetzalPlayer : MonoBehaviour
     }
 
 
-
+    public PlayerData GetData()
+    {
+        return data;
+    }
   
 
    

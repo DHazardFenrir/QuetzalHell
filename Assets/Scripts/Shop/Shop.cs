@@ -5,16 +5,15 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] ShopStatus statusValue = default;
+ 
     [SerializeField] Image currentPowerUpImage = default;
     [SerializeField] GameObject powerUpPrefab = default;
  
     [SerializeField] Inventory inventory = default;
     [SerializeField] GameObject shopPowerUp = default;
     [SerializeField] Transform shopPowerUpParent = default;
-    QuetzalPlayer player;
-    PlayerData data;
- 
+    [SerializeField]QuetzalPlayer player;
+
     private void Start()
     {
         OpenPowerUpShop();
@@ -39,6 +38,17 @@ public class Shop : MonoBehaviour
     private void OpenPowerUpShop()
     {
         shopPowerUp.SetActive(true);
+        DestroyAllChildren(shopPowerUpParent);
+        var data = player.GetData();
+        currentPowerUpImage.sprite = data.sprite;
+
+        for(int i=0; i< data.activePowerUp.Length; i++)
+        {
+            GameObject optionObject = Instantiate(powerUpPrefab, shopPowerUpParent);
+            PowerUpShop option = optionObject.GetComponent<PowerUpShop>();
+            option.Init(data.activePowerUp[i], this);
+
+        }
       
        
         
@@ -50,8 +60,8 @@ public class Shop : MonoBehaviour
         if(inventory.CurrentFeatherPoints >= powerup.cost)
         {
             inventory.ReduceFeatherPoints(powerup.cost);
-            PowerUp pu = data.activePowerUp;
-            player.PowerUpStats(pu);
+            
+           
            
             
 
