@@ -10,7 +10,7 @@ public class PlayerData : ScriptableObject
     public Sprite sprite;
     public string playerName = "PU name";
     public GameObject prefab;
-    public PowerUp[] activePowerUp;
+   
 }
 
 [System.Serializable]

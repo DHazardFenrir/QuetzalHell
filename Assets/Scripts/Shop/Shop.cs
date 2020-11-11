@@ -38,17 +38,17 @@ public class Shop : MonoBehaviour
     private void OpenPowerUpShop()
     {
         shopPowerUp.SetActive(true);
-        DestroyAllChildren(shopPowerUpParent);
+        //DestroyAllChildren(shopPowerUpParent);
         var data = player.GetData();
         currentPowerUpImage.sprite = data.sprite;
 
-        for(int i=0; i< data.activePowerUp.Length; i++)
-        {
-            GameObject optionObject = Instantiate(powerUpPrefab, shopPowerUpParent);
-            PowerUpShop option = optionObject.GetComponent<PowerUpShop>();
-            option.Init(data.activePowerUp[i], this);
+        //for(int i=0; i< data.activePowerUp.Length; i++)
+        //{
+        //    GameObject optionObject = Instantiate(powerUpPrefab, shopPowerUpParent);
+        //    PowerUpShop option = optionObject.GetComponent<PowerUpShop>();
+        //    option.Init(data.activePowerUp[i], this);
 
-        }
+        //}
       
        
         
@@ -60,7 +60,7 @@ public class Shop : MonoBehaviour
         if(inventory.CurrentFeatherPoints >= powerup.cost)
         {
             inventory.ReduceFeatherPoints(powerup.cost);
-            
+            player.SetPowerUp(powerup);
            
            
             

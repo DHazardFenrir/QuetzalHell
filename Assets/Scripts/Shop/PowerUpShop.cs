@@ -10,14 +10,14 @@ public class PowerUpShop : MonoBehaviour
     [SerializeField] TMP_Text powerUpnameLabel = default;
     [SerializeField] TMP_Text costLabel = default;
     [SerializeField] Button button = default;
+    [SerializeField] PowerUp powerup;
 
-    private PowerUp powerup;
-    private Shop shop;
+ 
+   
 
-    public void Init(PowerUp powerup, Shop shop)
+    public void Awake()
     {
-        this.powerup = powerup;
-        this.shop = shop;
+     
         powerUpImage.sprite = powerup.powerUp.sprite;
         powerUpnameLabel.text = powerup.powerUp.name;
         costLabel.text = "Cost:  " + powerup.cost;
@@ -27,7 +27,7 @@ public class PowerUpShop : MonoBehaviour
 
     private void OptionClick()
     {
-        shop.TryBuyPowerUp(powerup);
+        FindObjectOfType<Shop>().TryBuyPowerUp(powerup);
     }
 
 }

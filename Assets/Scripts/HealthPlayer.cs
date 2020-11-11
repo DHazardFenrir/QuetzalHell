@@ -9,6 +9,8 @@ public class HealthPlayer : MonoBehaviour, IDamageable
     public event Action<int> onDamageTaken;
     private int currentHP;
 
+
+
     public void Damage(int amount)
     {
         healthPoints -= amount;
@@ -26,6 +28,7 @@ public class HealthPlayer : MonoBehaviour, IDamageable
     void Start()
     {
         currentHP = healthPoints;
+        onDamageTaken?.Invoke(currentHP);
     }
 
   

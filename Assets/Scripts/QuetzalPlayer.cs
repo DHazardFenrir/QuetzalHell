@@ -15,7 +15,7 @@ public class QuetzalPlayer : MonoBehaviour
     [SerializeField] PlayerData data = default;
     int i = 0;
     PlayerShield myShield;
-
+    private PowerUp currentPowerUp;
 
 
     [SerializeField] bool isBarrelRoll;
@@ -121,10 +121,10 @@ public class QuetzalPlayer : MonoBehaviour
 
     }
 
-    public PlayerData PowerUpStats(PowerUp powerup)
+    public void SetPowerUp(PowerUp powerup)
     {
-        PlayerData newData = powerup.powerUp;
-        return newData;
+        currentPowerUp = powerup;
+        
     }
 
 
