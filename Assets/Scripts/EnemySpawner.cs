@@ -4,42 +4,53 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
-    [SerializeField] GameObject minX;
-    [SerializeField] GameObject maxX;
-    [SerializeField] GameObject minZ;
-    [SerializeField] GameObject maxZ;
-    [SerializeField]int  enemyCount;
-    [SerializeField] int numEnemies;
+    [SerializeField] List<EnemyWaves> wavesConfigs;
+    //public List<Transform> spawnPoints;
 
-    private float xPos;
-    private float zPos;
-    private float randomX;
-    private float randomZ;
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] Quaternion spawnRotation;
+
+
+    [SerializeField] float initialWaitTime;
+    [SerializeField] float candaceBetweenWaves;
+
+    private void Start()
     {
-        
-        StartCoroutine(EnemyDrop());
-       
+        StartCoroutine(EnemySpawnerCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnEnemy(EnemyController enemyPrefab, EnemyConfig config, Vector3 enemyPosition, Quaternion rotation)
     {
-        
+
+        var enemyInstantiate = Instantiate(enemyPrefab, enemyPosition, rotation);
+        enemyInstantiate.config = config;
+
+
+
     }
 
-    IEnumerator EnemyDrop()
+    private IEnumerator EnemySpawnerCoroutine()
     {
-        while(enemyCount < numEnemies)
+        yield return new WaitForSeconds(initialWaitTime);
+        foreach (var wave in wavesConfigs)
         {
-            randomX = Random.Range(minX.transform.position.x, maxX.transform.position.x);
-            randomZ = Random.Range(minZ.transform.position.z, maxZ.transform.position.z);
-            
-            Instantiate(enemy, new Vector3(randomX, 0, randomZ), Quaternion.identity);
-            yield return new WaitForSeconds(.01f);
-            enemyCount++;
+
+            foreach (var enemy in wave.enemies)
+            {
+                Vector3 enemyPosition;
+                if (enemy.useSpecificXPosition)
+                {
+
+                    enemyPosition = enemy.spawnReferencePosition;
+                }
+                else
+                {
+                    enemyPosition = new Vector3(Random.Range(-enemy.spawnReferencePosition.x, enemy.spawnReferencePosition.x), enemy.spawnReferencePosition.y, enemy.spawnReferencePosition.z);
+                }
+                SpawnEnemy(enemy.enemyPrefab, enemy.config, enemyPosition, spawnRotation);
+                yield return new WaitForSeconds(wave.cadence);
+            }
+            yield return new WaitForSeconds(candaceBetweenWaves);
         }
     }
 }

@@ -44,6 +44,6 @@ public class Enemy: MonoBehaviour, IDamageable
     IEnumerator Shooting()
     {
         yield return new WaitForSeconds(10f);
-        rad.SpawnPorjectile(shots);
+        //rad.SpawnPorjectile(shots);
     }
 }

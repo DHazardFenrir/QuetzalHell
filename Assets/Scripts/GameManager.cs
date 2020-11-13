@@ -7,17 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameObject leftBoundary;                   //
-    public GameObject rightBoundary;                  // References to the screen bounds: Used to ensure the player
-    public GameObject topBoundary;                    // is not able to leave the screen.
-    public GameObject bottomBoundary;
-
-    public GameObject secondLeftBounday;
-    public GameObject secondRightBounday;
-
-    public GameObject secondTopBounday;
-    public GameObject secondBottomBounday;
-
+    
     public float points;
 
     [SerializeField] GameObject gameOverPanel;

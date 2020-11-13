@@ -8,15 +8,18 @@ public class Shop : MonoBehaviour
  
     [SerializeField] Image currentPowerUpImage = default;
     [SerializeField] GameObject powerUpPrefab = default;
- 
+    [SerializeField] GameObject areaShop= default;
     [SerializeField] Inventory inventory = default;
     [SerializeField] GameObject shopPowerUp = default;
     [SerializeField] Transform shopPowerUpParent = default;
     [SerializeField]QuetzalPlayer player;
+    [SerializeField] GameObject playerArea = default;
 
     private void Start()
     {
         OpenPowerUpShop();
+        areaShop.SetActive(true);
+        playerArea.SetActive(true);
     }
 
   
@@ -49,8 +52,8 @@ public class Shop : MonoBehaviour
         //    option.Init(data.activePowerUp[i], this);
 
         //}
-      
-       
+
+        Time.timeScale = 0f;
         
 
     }
@@ -67,5 +70,15 @@ public class Shop : MonoBehaviour
 
             
         }
+    }
+
+    public void ExitShop()
+    {
+        shopPowerUp.SetActive(false);
+        Clean();
+        areaShop.SetActive(false);
+        playerArea.SetActive(false);
+        Time.timeScale = 1f;
+        
     }
 }
