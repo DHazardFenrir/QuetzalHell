@@ -13,7 +13,7 @@ public class QuetzalPlayer : MonoBehaviour
     private Vector3 moveInput;
     Quaternion rotation;
     [SerializeField] PlayerData data = default;
-    int i = 0;
+    int i = 1;
     PlayerShield myShield;
     private PowerUp currentPowerUp;
 
@@ -33,7 +33,8 @@ public class QuetzalPlayer : MonoBehaviour
         rotation.y = 1f;
 
         myShield = GetComponent<PlayerShield>();
-        
+
+        myShield.ChangeShield(i);
 
     }
 
