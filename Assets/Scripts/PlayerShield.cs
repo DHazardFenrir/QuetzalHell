@@ -10,7 +10,7 @@ public class PlayerShield : MonoBehaviour
     private int currentType;
     Color[] colors = { Color.red, Color.blue, Color.yellow};
 
-  
+    
     // Start is called before the first frame update
     public void ChangeShield(int numb)
     {
