@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HardEnemy
   m_EditorClassIdentifier: 
   moveSpeed: 30
-  prefab: {fileID: 1066352999348694755, guid: dc67d61a5e84bac4e9c19782609255da, type: 3}
+  prefab: {fileID: 428538534527945775, guid: 617f0a306bdb7bc4d84ec115934f9a23, type: 3}
   isShooter: 1
   shootCandance: 1
   shootInitialWaitTime: 1
