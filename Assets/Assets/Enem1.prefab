@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1960839139383382206}
   - component: {fileID: 7930208633830140146}
   - component: {fileID: 5404294353669136861}
-  m_Layer: 0
+  - component: {fileID: 5144309314048465318}
+  m_Layer: 8
   m_Name: Enem1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,6 +62,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   direction: {x: 0, y: 0, z: 1}
+--- !u!114 &5144309314048465318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428538534527945775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5c7741b81ea2c499200eb1272fa12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 1
+  featherPoints: 10
+  rad: {fileID: 0}
+  shots: 1
 --- !u!1 &3825867924389395021
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6252685471743574519}
   - component: {fileID: 1923089990664477501}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +122,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0281959, y: 0.39699745, z: 2.952355}
-  m_Center: {x: -0.023111582, y: -0.033768177, z: 0.009518862}
+  m_Center: {x: 0.01, y: 0.22, z: 0.009518862}
 --- !u!1001 &6058360729933281065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,6 +189,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Object_Boat
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 817c3480ad7aa9449bb8ca8751c58f89,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326885377911777016, guid: 817c3480ad7aa9449bb8ca8751c58f89,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 817c3480ad7aa9449bb8ca8751c58f89, type: 3}
