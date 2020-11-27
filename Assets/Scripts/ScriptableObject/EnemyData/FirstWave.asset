@@ -13,9 +13,24 @@ MonoBehaviour:
   m_Name: FirstWave
   m_EditorClassIdentifier: 
   enemies:
-  - enemyPrefab: {fileID: 2032860398354087197, guid: 8db85b68309f43143a4cfc1ef7f5d6c7,
+  - enemyPrefab: {fileID: 7930208633830140146, guid: 617f0a306bdb7bc4d84ec115934f9a23,
       type: 3}
-    spawnReferencePosition: {x: 0, y: -8, z: -20.7}
+    spawnReferencePosition: {x: 1, y: -5, z: -19.7}
+    useSpecificXPosition: 1
+    config: {fileID: 11400000, guid: b48124a1ebdf3a940be501a8926b91da, type: 2}
+  - enemyPrefab: {fileID: 7930208633830140146, guid: 617f0a306bdb7bc4d84ec115934f9a23,
+      type: 3}
+    spawnReferencePosition: {x: 5, y: -5, z: -18.7}
+    useSpecificXPosition: 1
+    config: {fileID: 11400000, guid: b48124a1ebdf3a940be501a8926b91da, type: 2}
+  - enemyPrefab: {fileID: 7930208633830140146, guid: 617f0a306bdb7bc4d84ec115934f9a23,
+      type: 3}
+    spawnReferencePosition: {x: 10, y: -5, z: -20.7}
+    useSpecificXPosition: 1
+    config: {fileID: 11400000, guid: b48124a1ebdf3a940be501a8926b91da, type: 2}
+  - enemyPrefab: {fileID: 7930208633830140146, guid: 617f0a306bdb7bc4d84ec115934f9a23,
+      type: 3}
+    spawnReferencePosition: {x: 25, y: -5, z: -20.7}
     useSpecificXPosition: 1
     config: {fileID: 11400000, guid: b48124a1ebdf3a940be501a8926b91da, type: 2}
   cadence: 1
