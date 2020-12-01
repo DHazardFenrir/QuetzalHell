@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy: MonoBehaviour, IDamageable
 {
-    [SerializeField] float healthPoints;
+    [SerializeField] float initialHealthPoints;
     [SerializeField] int featherPoints;
-  
-    public RadioBulletController rad;
     [SerializeField] int shots;
+    [SerializeField] Image healthBar;
+
+    private float currentHealthPoints;
+
+
+    public RadioBulletController rad;
+
     // Start is called before the first frame update
     void Start()
     {
         rad = GetComponent<RadioBulletController>();
-        
+        currentHealthPoints = initialHealthPoints;
     }
 
     // Update is called once per frame
@@ -22,14 +28,14 @@ public class Enemy: MonoBehaviour, IDamageable
         Shoot();
     }
 
-  
-
     public void Damage(int amount)
     {
-        healthPoints -= amount;
-        Debug.Log("its recieving damage");     
+        currentHealthPoints -= amount;
+        Debug.Log("its recieving damage");
 
-        if(healthPoints <= 0)
+        healthBar.fillAmount = currentHealthPoints / initialHealthPoints;
+
+        if(currentHealthPoints <= 0)
         {
             Destroy(this.gameObject);
             GameManager.Instance.points += featherPoints;
