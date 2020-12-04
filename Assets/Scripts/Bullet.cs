@@ -61,6 +61,10 @@ public class Bullet : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
+        else
+        {
+            Destroy(this.gameObject, 1f);
+        }
     }
 
     public void Init(int damage)
