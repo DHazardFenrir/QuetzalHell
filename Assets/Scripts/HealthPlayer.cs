@@ -16,6 +16,7 @@ public class HealthPlayer : MonoBehaviour, IDamageable
     {
         currentHP = healthPoints;
         onDamageTaken?.Invoke(currentHP);
+        healthBar.fillAmount = healthPoints;
     }
 
     public void Damage(int amount)

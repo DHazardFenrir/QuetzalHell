@@ -7,7 +7,7 @@ using UnityEngine;
 public enum Type { red, blue, yellow}
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] int damage;
+    [SerializeField] public int damage;
     [SerializeField] BulletType type = default;
     [SerializeField] GameObject bullet;
     [SerializeField] float speed;

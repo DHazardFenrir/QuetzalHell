@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aaf575e5d04fd342be52bd3cdce4062, type: 3}
-  m_Name: HardEnemy
+  m_Script: {fileID: 11500000, guid: 623a08703a82ea94ca89a6a6c1b8eeb2, type: 3}
+  m_Name: BasicEnemyShootingConfig
   m_EditorClassIdentifier: 
-  moveSpeed: 15
-  prefab: {fileID: 428538534527945775, guid: 617f0a306bdb7bc4d84ec115934f9a23, type: 3}
-  isShooter: 1
-  shootCandance: 10
   shootInitialWaitTime: 1
+  shootCadence: 1
+  damage: 10
+  autoShooting: 1

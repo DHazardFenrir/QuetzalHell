@@ -60,10 +60,16 @@ public class PlayerShield : MonoBehaviour
         if (data.baseStats.bulletType[currentType].Equals(type))
         {
             Debug.Log("No Damage");
+            HealthPlayer player = FindObjectOfType<HealthPlayer>();
+            player.Damage(0);
         }
         else
         {
             Debug.Log("Damage");
+            HealthPlayer player = FindObjectOfType<HealthPlayer>();
+            Bullet bullet = FindObjectOfType<Bullet>();
+            player.Damage(bullet.damage);
+          
         }
     }
 
