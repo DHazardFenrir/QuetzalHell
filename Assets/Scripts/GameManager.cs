@@ -54,8 +54,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         pauseMenu.alpha = (1f);
         pauseMenu.interactable = true;
-        pauseMenu.blocksRaycasts = false;
-
+        pauseMenu.blocksRaycasts = true;
     }
     
     public void ResumeGame()
@@ -64,7 +63,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenu.alpha = (0f);
         pauseMenu.interactable = false;
-        pauseMenu.blocksRaycasts = true;
+        pauseMenu.blocksRaycasts = false;
     }
 
     public void ShowGameOver()

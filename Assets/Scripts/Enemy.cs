@@ -14,14 +14,16 @@ public class Enemy: MonoBehaviour, IDamageable
 
     public RadioBulletController rad;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        rad = GetComponent<RadioBulletController>();
         currentHealthPoints = initialHealthPoints;
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        //rad = GetComponent<RadioBulletController>();
+    }
+
     void Update()
     {
         Shoot();

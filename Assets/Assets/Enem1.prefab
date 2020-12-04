@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.6666667}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.4474808, g: 0.8867924, b: 0.40574938, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -177,7 +177,7 @@ RectTransform:
   m_GameObject: {fileID: 295950713}
   m_LocalRotation: {x: -0.3420201, y: -0, z: -0, w: 0.9396927}
   m_LocalPosition: {x: 0, y: 0, z: -7.395}
-  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
+  m_LocalScale: {x: 0.0042072, y: 0.0042072, z: 0.0042072}
   m_Children:
   - {fileID: 111075853}
   m_Father: {fileID: 1960839139383382206}
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295950713}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -276,7 +276,7 @@ Transform:
   m_GameObject: {fileID: 428538534527945775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 6252685471743574519}
   - {fileID: 295950717}
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5c7741b81ea2c499200eb1272fa12b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealthPoints: 0
+  initialHealthPoints: 100
   featherPoints: 10
   shots: 1
   healthBar: {fileID: 206214835}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 1923089990664477501}
   m_Layer: 8
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,7 +371,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0281959, y: 0.39699745, z: 2.952355}
+  m_Size: {x: 2.03, y: 1.21, z: 2.95}
   m_Center: {x: 0.01, y: 0.22, z: 0.009518862}
 --- !u!1001 &6058360729933281065
 PrefabInstance:
@@ -444,6 +444,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 817c3480ad7aa9449bb8ca8751c58f89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 817c3480ad7aa9449bb8ca8751c58f89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4326885377911777016, guid: 817c3480ad7aa9449bb8ca8751c58f89,
         type: 3}

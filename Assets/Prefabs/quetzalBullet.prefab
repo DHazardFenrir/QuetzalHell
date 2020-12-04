@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4032242292283101832}
   - component: {fileID: 3150466821246366147}
   - component: {fileID: 3642657093599898696}
-  - component: {fileID: 7050177247633826248}
   - component: {fileID: 2529632485646110559}
+  - component: {fileID: 7050177247633826248}
   m_Layer: 0
   m_Name: quetzalBullet
   m_TagString: Untagged
@@ -99,6 +99,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &2529632485646110559
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384877498273028375}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7050177247633826248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,19 +128,6 @@ MonoBehaviour:
   type: {fileID: 0}
   bullet: {fileID: 384877498273028375}
   speed: 100
---- !u!135 &2529632485646110559
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384877498273028375}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4807353699564034932
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +137,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4300956294442561811}
-  - component: {fileID: 6697258085045163942}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -159,16 +158,3 @@ Transform:
   m_Father: {fileID: 607033766333760784}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6697258085045163942
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4807353699564034932}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

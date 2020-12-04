@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>(); 
     }
+
     private void Update()
     {
         rb.velocity = Vector3.forward * speed;
@@ -30,7 +31,8 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            
+            Debug.Log("Enemigo");
+
             Enemy enemy = other.GetComponent<Enemy>();
             if(enemy != null)
             {
