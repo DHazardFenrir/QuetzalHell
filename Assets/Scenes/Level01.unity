@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28466022, g: 0.37124982, b: 0.4986349, a: 1}
+  m_IndirectSpecularColor: {r: 0.28466025, g: 0.37125036, b: 0.49863672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1098,7 +1098,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d5be11f2dd25e1f4ba0a020f9322cc97, type: 2}
+  - {fileID: 2100000, guid: ca0cf6e6d78cbf04a98bab5c0de69377, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1229,7 +1229,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d5be11f2dd25e1f4ba0a020f9322cc97, type: 2}
+  - {fileID: 2100000, guid: ca0cf6e6d78cbf04a98bab5c0de69377, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1379,9 +1379,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448962200}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1001 &463921541
 PrefabInstance:
@@ -2722,7 +2722,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d5be11f2dd25e1f4ba0a020f9322cc97, type: 2}
+  - {fileID: 2100000, guid: ca0cf6e6d78cbf04a98bab5c0de69377, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14130,7 +14130,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1929963457
 GameObject:
@@ -14761,7 +14761,7 @@ PrefabInstance:
     - target: {fileID: 4761520840207348969, guid: ecb595ba9a187a9469da3f43cbe0017b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 4761520840207348969, guid: ecb595ba9a187a9469da3f43cbe0017b,
         type: 3}
