@@ -337,7 +337,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 30281078}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 437934229}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &30281078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,7 +532,7 @@ GameObject:
   - component: {fileID: 79164208}
   - component: {fileID: 79164207}
   m_Layer: 0
-  m_Name: TMP_GamePausedGlyph
+  m_Name: TMP_GameIOverGlyph
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1303,8 +1314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d75fad9b7fbbd41bd5e29b3fe04271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 448962202}
+  gameOverMenu: {fileID: 0}
   points: 0
-  gameOverPanel: {fileID: 0}
 --- !u!4 &437934230
 Transform:
   m_ObjectHideFlags: 0
@@ -1367,8 +1379,8 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448962200}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
+  m_Alpha: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1001 &463921541
@@ -7880,7 +7892,7 @@ GameObject:
   - component: {fileID: 1334447323}
   - component: {fileID: 1334447322}
   m_Layer: 0
-  m_Name: TMP_GamePaused
+  m_Name: TMP_GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8338,7 +8350,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1361448912}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 437934229}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1361448912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14106,7 +14129,7 @@ CanvasGroup:
   m_GameObject: {fileID: 1907291204}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1929963457
@@ -14548,7 +14571,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2041117244}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 437934229}
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2041117244
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ public class Enemy: MonoBehaviour, IDamageable
 
     private float currentHealthPoints;
 
-
     public RadioBulletController rad;
 
     // Start is called before the first frame update
@@ -33,12 +32,12 @@ public class Enemy: MonoBehaviour, IDamageable
         currentHealthPoints -= amount;
         Debug.Log("its recieving damage");
 
-        healthBar.fillAmount = currentHealthPoints / initialHealthPoints;
+        healthBar.fillAmount = (currentHealthPoints / initialHealthPoints);
 
         if(currentHealthPoints <= 0)
         {
-            Destroy(this.gameObject);
             GameManager.Instance.points += featherPoints;
+            Destroy(this.gameObject);
         }
     }
 
